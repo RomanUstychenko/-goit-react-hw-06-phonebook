@@ -35,14 +35,12 @@ export default function ContactForm () {
         onAddContacts({name, number})
       };
       const onAddContacts = (data) => {
-        console.log(data)
         if (duplicateContacts(data)) {
           alert (`${data.name} is already in contact`)
           return
         }
         else {
           const action = addContact(data);
-          console.log(action)
           dispatch(action);
           setState ({
             name: '',
@@ -52,7 +50,6 @@ export default function ContactForm () {
       };
 
       const duplicateContacts = ({name}) => {
-        console.log(contacts)
         const result = contacts.find((contact) => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase());
         return result;
     };

@@ -1,24 +1,9 @@
-import { useEffect } from "react";
 import  ContactForm  from "../ContactForm/ContactForm"
 import {ContactList} from "../ContactList/ContactList"
 import Filter from "../filter/Filter"
 import scss from "./Contacts.module.scss"
-import { useSelector } from "react-redux";
-import { getContacts } from "redux/contacts/contacts-selector";
-
 
 export default function Contacts() {
-const contacts = useSelector(getContacts)
-
-  useEffect (() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-    console.log(contacts)
-  }, [contacts]);
-
-  useEffect(() => {
-    return () => {
-      localStorage.removeItem("contacts")}
-  }, [])
 
   return (
     <div  className={scss.phoneBook}>
